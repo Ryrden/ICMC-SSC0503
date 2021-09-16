@@ -12,12 +12,11 @@ int main(void) {
 
     tam = (int *)malloc(sizeof(int) * N);
 
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < N; i++)
         scanf("%i", &tam[i]); //O tamanho de cada vetor
-    }
 
-    vetor1 = (int **)malloc(sizeof(int *) * N);
-    vetor2 = (int **)malloc(sizeof(int *) * N);
+    vetor1 = (int **)malloc(sizeof(int *) * N); //Para o InsertionSort
+    vetor2 = (int **)malloc(sizeof(int *) * N); ////Para o MergeSort
 
     for (int i = 0; i < N; i++) {
         vetor1[i] = (int *)malloc(sizeof(int) * tam[i]);
@@ -28,10 +27,7 @@ int main(void) {
         }
     }
 
-    banco = vetor1;
-
     for (int i = 0; i < N; i++) {
-
         insertionSort(vetor1[i], tam[i], &troca, &comparacao);
         printf("I %i %i %i\n", tam[i], troca, comparacao);
 
@@ -58,5 +54,3 @@ int main(void) {
 
     return EXIT_SUCCESS;
 }
-
-;
