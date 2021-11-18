@@ -1,4 +1,4 @@
-UTIL=Couting.c
+UTIL=CountingSort.c
 MAIN=main.c
 BINARY=main
 
