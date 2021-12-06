@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define EMPTY (-300)
+#define WAS_OCUPIED (-600)
 
 typedef unsigned int integer;
 
@@ -54,7 +55,7 @@ void insert_hash(integer *hash, integer element, int Table_capacity) {
         int pos = SondagemLinear(element, tentativa, Table_capacity);
         if (hash[pos] == element) {
             return;
-        } else if (hash[pos] == EMPTY) {
+        } else if (hash[pos] == EMPTY || hash[pos] == WAS_OCUPIED) {
             hash[pos] = element;
             return;
         }
@@ -76,8 +77,8 @@ int search_hash(integer *hash, integer element, int Table_capacity) {
 
 void remove_hash(integer *hash, integer element, int Table_capacity) {
     int pos = search_hash(hash, element, Table_capacity);
-    if (pos != -1)
-        hash[pos] = EMPTY;
+    if (pos >= 0)
+        hash[pos] = WAS_OCUPIED;
     return;
 }
 

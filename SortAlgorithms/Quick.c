@@ -1,20 +1,16 @@
 #include <stdio.h>
 
 void _heap(int *vetor, int father_index, int last_index);
-void _quick(int *vetor, int inicio, int final, int profundidade);
+void _quick(int *vetor, int inicio, int final);
 
-void QuickSort(int *vetor, int N, int profundidade) {
-    _quick(vetor, 0, N - 1, profundidade);
+void QuickSort(int *vetor, int N) {
+    _quick(vetor, 0, N - 1);
 }
 
-void _quick(int *vetor, int inicio, int final, int profundidade) {
+void _quick(int *vetor, int inicio, int final) {
     int i = inicio;
     int f = final;
 
-    if (profundidade > 15) {
-        _heap(vetor, i, f);
-        return;
-    }
     if (i >= f) {
         return;
     }
@@ -37,8 +33,8 @@ void _quick(int *vetor, int inicio, int final, int profundidade) {
         i2++;
         f2--;
     }
-    _quick(vetor, i, f2, profundidade + 1);
-    _quick(vetor, f2 + 1, f, profundidade + 1);
+    _quick(vetor, i, f2);
+    _quick(vetor, f2 + 1, f);
 }
 
 void _heap(int *vetor, int father_index, int last_index) {
